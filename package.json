@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "test": "jest",
-    "test:watch": "yarn test --watch",
+    "lint": "eslint src --max-warnings=0",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "test": "jest --maxWorkers=50%",
+    "test:watch": "yarn test --watch --maxWorkers=25%",
+    "test:ci": "jest --runInBand",
     "generate": "yarn plop --plopfile ./generators/plopfile.js"
   },
   "lint-staged": {
